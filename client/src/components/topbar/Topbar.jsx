@@ -13,7 +13,7 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">Car managment</span>
+          <span className="logo">Car management</span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

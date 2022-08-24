@@ -3,6 +3,8 @@ import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import axios from "axios";
+import { CategoryContext } from "../../context/CategoryContext/categoryContext";
+import { getCategories } from "../../context/CategoryContext/apiCalls";
 
 export default function FeaturedInfo() {
 
@@ -31,6 +33,12 @@ export default function FeaturedInfo() {
     getStats();
   }, [user]);
 
+  const { categories, dispatch } = useContext(CategoryContext);
+
+  useEffect(() => {
+    getCategories(dispatch);
+  }, [dispatch]);
+
   return (
     <div className="featured">
       <div className="featuredItem">
@@ -52,6 +60,14 @@ export default function FeaturedInfo() {
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>
+      </div>
+      <div className="featuredItem">
+        <span className="featuredTitle">Total categories</span>
+        <div className="featuredMoneyContainer">
+          <span className="featuredMoney">{categories.length}</span>
+
+        </div>
+
       </div>
 
     </div>

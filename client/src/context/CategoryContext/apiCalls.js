@@ -46,7 +46,6 @@ export const updateCategory = async (id, category, dispatch) => {
 
         dispatch(updateCategoryStart());
         const res = await axios.put("/category/" + id, category, { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accessToken } });
-
         dispatch(updateCategorySuccess(res.data));
 
 
