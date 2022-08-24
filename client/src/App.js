@@ -4,12 +4,15 @@ import "./App.css";
 import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import CarList from "./pages/carList/CarList";
-import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
+import Car from "./pages/car/Car";
+import NewCar from "./pages/newCar/NewCar";
 
 import Login from "./pages/login/Login";
 import { AuthContext } from "./context/authContext/AuthContext";
 import { useContext } from "react";
+import CategoryList from "./pages/categoryList/CategoryList";
+import Category from "./pages/category/Category";
+import NewCategory from "./pages/newCategory/NewCategory";
 
 
 
@@ -36,10 +39,19 @@ function App() {
                 <CarList />
               </Route>
               <Route path="/car/:userId">
-                <User />
+                <Car />
               </Route>
               <Route path="/newcar">
-                <NewUser />
+                <NewCar />
+              </Route>
+              <Route path="/categories">
+                <CategoryList />
+              </Route>
+              <Route path="/category/:Id">
+                <Category />
+              </Route>
+              <Route path="/newcategory">
+                <NewCategory />
               </Route>
 
             </div> </>) : <Redirect to="/login" />}

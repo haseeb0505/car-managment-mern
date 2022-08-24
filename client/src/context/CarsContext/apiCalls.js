@@ -34,8 +34,8 @@ export const createCar = async (car, dispatch) => {
 
     try {
         dispatch(createCarStart());
-        const res = await axios.post("/cars/", car);
-
+        const res = await axios.post("/cars/", car, { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accessToken } });
+        console.log(res.data)
         dispatch(createCarSuccess(res.data));
 
 
@@ -49,7 +49,7 @@ export const updateCar = async (id, user, dispatch) => {
 
     try {
         dispatch(updateCarStart());
-        const res = await axios.put("/cars/" + id, user, { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accesstoken } });
+        const res = await axios.put("/cars/" + id, user, { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accessToken } });
 
         dispatch(updateCarSuccess(res.data));
 
@@ -65,8 +65,8 @@ export const deleteCar = async (id, dispatch) => {
 
     try {
         dispatch(deleteCarStart());
-        await axios.delete("/cars/" + id, { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accesstoken } });
-
+        await axios.delete("/cars/" + id, { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accessToken } });
+        console.log("deleted")
         dispatch(deleteCarSuccess(id));
 
 

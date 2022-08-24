@@ -1,23 +1,24 @@
-import "./carList.css";
+import "./categoryList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { CarContext } from "../../context/CarsContext/carContext";
-import { getCars, deleteCar } from "../../context/CarsContext/apiCalls";
+import { getCategories, deleteCategory } from "../../context/CategoryContext/apiCalls";
+import { CategoryContext } from "../../context/CategoryContext/categoryContext";
 
-export default function CarList() {
+export default function CategoryList() {
 
-  const { cars, dispatch } = useContext(CarContext);
+  const { categories, dispatch } = useContext(CategoryContext);
 
   useEffect(() => {
-    getCars(dispatch);
+    getCategories(dispatch);
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    deleteCar(id, dispatch);
+    deleteCategory(id, dispatch);
   };
+
 
   const columns = [
     { field: "_id", headerName: "ID", width: 200 },
@@ -29,14 +30,12 @@ export default function CarList() {
         return (
           <div className="userListUser">
             <img className="userListImg" src="https://media.istockphoto.com/vectors/car-icon-auto-vehicle-isolated-transport-icons-automobile-silhouette-vector-id1273534607?k=20&m=1273534607&s=612x612&w=0&h=Uynt53JLF7_JUxklSlCNP-KVm-CNLUkgpgewc2AOO2I=" alt="" />
-            {params.row.name}
+            {params.row.type}
           </div>
         );
       },
     },
-    { field: "color", headerName: "Color", width: 200 },
-    { field: "model", headerName: "Model", width: 200 },
-    { field: "make", headerName: "Make", width: 200 },
+
     { field: "createdAt", headerName: "CreatedAt", width: 200 },
     {
       field: "action",
@@ -47,8 +46,8 @@ export default function CarList() {
           <>
             <Link
               to={{
-                pathname: `/car/${params.row._id}`,
-                state: { car: params.row },
+                pathname: `/category/${params.row._id}`,
+                state: { category: params.row },
               }}
             >
               <button className="userListEdit">Edit</button>
@@ -70,10 +69,10 @@ export default function CarList() {
         Search
       </div>
       <DataGrid
-        rows={cars}
+        rows={categories}
         disableSelectionOnClick
         columns={columns}
-        pageSize={10}
+        pageSize={8}
         checkboxSelection
         getRowId={(r) => r._id}
 

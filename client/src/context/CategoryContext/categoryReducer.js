@@ -1,77 +1,78 @@
-const CarReducer = (state, action) => {
+const CategoryReducer = (state, action) => {
     switch (action.type) {
-        case "GET_CARS_START":
+        case "GET_CATEGORIES_START":
             return {
-                cars: [],
+                categories: [],
                 isFetching: true,
                 error: false
             };
-        case "GET_CARS_SUCCESS":
+        case "GET_CATEGORIES_SUCCESS":
             return {
-                cars: action.payload,
+                categories: action.payload,
                 isFetching: false,
                 error: false
 
             };
-        case "GET_CARS_FAILURE":
+        case "GET_CATEGORIES_FAILURE":
             return {
-                cars: [],
+                categories: [],
                 isFetching: false,
                 error: true
             };
 
-        case "DELETE_CAR_START":
+        case "DELETE_CATEGORY_START":
             return {
                 ...state,
                 isFetching: true,
                 error: false
             };
-        case "DELETE_CAR_SUCCESS":
+        case "DELETE_CATEGORY_SUCCESS":
             return {
-                cars: state.cars.filter((car) => car._id !== action.payload),
+                categories: state.categories.filter((category) => category._id !== action.payload),
                 isFetching: false,
                 error: false
 
             };
-        case "DELETE_CAR_FAILURE":
+        case "DELETE_CATEGORY_FAILURE":
             return {
                 ...state,
                 isFetching: false,
                 error: true
             };
-        case "CREATE_CAR_START":
+        case "CREATE_CATEGORY_START":
             return {
                 ...state,
                 isFetching: true,
                 error: false
             };
-        case "CREATE_CAR_SUCCESS":
+        case "CREATE_CATEGORY_SUCCESS":
             return {
-                cars: [...state.cars, action.payload],
+                categories: [...state.categories, action.payload],
                 isFetching: false,
                 error: false
 
             };
-        case "CREATE_CAR_FAILURE":
+        case "CREATE_CATEGORY_FAILURE":
             return {
                 ...state,
                 isFetching: false,
                 error: true
             }
-        case "UPDATE_CAR_START":
+        case "UPDATE_CATEGORY_START":
             return {
                 ...state,
                 isFetching: true,
                 error: false
             };
-        case "UPDATE_CAR_SUCCESS":
+        case "UPDATE_CATEGORY_SUCCESS":
+
             return {
-                cars: state.cars.map((car) => car._id === action.payload._id && action.payload),
+                categories: state.categories.map((category) => category._id === action.payload._id && action.payload),
                 isFetching: false,
                 error: false
 
             };
-        case "UPDATE_CAR_FAILURE":
+        case "UPDATE_CATEGORY_FAILURE":
             return {
                 ...state,
                 isFetching: false,
@@ -86,4 +87,4 @@ const CarReducer = (state, action) => {
 
 
 }
-export default CarReducer
+export default CategoryReducer

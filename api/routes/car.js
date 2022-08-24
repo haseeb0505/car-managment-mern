@@ -20,7 +20,8 @@ router.post("/", verifyToken, async (req, res) => {
 router.put("/:id", verifyToken, async (req, res) => {
 
     try {
-        const response = await Car.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+        const response = await Car.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+        console.log(response)
         res.status(200).json(response);
 
     } catch (error) {
@@ -33,7 +34,7 @@ router.put("/:id", verifyToken, async (req, res) => {
 router.delete("/:id", verifyToken, async (req, res) => {
     try {
         await Car.findByIdAndDelete(req.params.id);
-        res.status(200).json({ message: "cart deleted" });
+        res.status(200).json({ message: "car deleted" });
     } catch (error) {
         res.status(500).json(error);
     }

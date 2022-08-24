@@ -23,12 +23,42 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Quick Menu</h3>
+          <h3 className="sidebarTitle">Cars</h3>
           <ul className="sidebarList">
             <Link to="/cars" className="link">
               <li className="sidebarListItem">
                 <TimeToLeave className="sidebarIcon" />
-                cars
+                Cars
+              </li>
+            </Link>
+
+          </ul>
+          <ul className="sidebarList">
+            <Link to="/newcar" className="link">
+              <li className="sidebarListItem">
+                <TimeToLeave className="sidebarIcon" />
+                Add Car
+              </li>
+            </Link>
+
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Category</h3>
+          <ul className="sidebarList">
+            <Link to="/categories" className="link">
+              <li className="sidebarListItem">
+                <TimeToLeave className="sidebarIcon" />
+                Categories
+              </li>
+            </Link>
+
+          </ul>
+          <ul className="sidebarList">
+            <Link to="/newcategory" className="link">
+              <li className="sidebarListItem">
+                <TimeToLeave className="sidebarIcon" />
+                Add Category
               </li>
             </Link>
 

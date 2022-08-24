@@ -20,8 +20,9 @@ router.post("/", verifyToken, async (req, res) => {
 router.put("/:id", verifyToken, async (req, res) => {
 
     try {
-        const response = await Category.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
-        res.status(200).json(response);
+        const rest = await Category.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+        console.log(rest)
+        res.status(200).json(rest);
 
     } catch (error) {
         res.status(500).json(error);

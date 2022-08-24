@@ -10,10 +10,11 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { CarContext } from "../../context/CarsContext/carContext";
 import { updateCar } from "../../context/CarsContext/apiCalls";
 
-import "./user.css";
-import { useContext, useState } from "react";
+import "./car.css";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 
-export default function User() {
+export default function Car() {
   const location = useLocation();
 
   let car = location.state.car;
@@ -23,16 +24,29 @@ export default function User() {
   const history = useHistory();
 
 
-  const [updatedUser, setUpdatedUser] = useState(null);
+  const [updatedCar, setUpdatedCar] = useState(null);
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    const getCat = async () => {
+      try {
+        let res = await axios.get("/category", { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accessToken } })
+        setCategory(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getCat()
+  }, [])
 
   const handleChange = (e) => {
     const value = e.target.value;
-    setUpdatedUser({ ...updatedUser, [e.target.name]: value });
+    setUpdatedCar({ ...updatedCar, [e.target.name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateCar(car._id, updatedUser, dispatch);
+    updateCar(car._id, updatedCar, dispatch);
     history.push("/cars");
   };
 
@@ -40,9 +54,7 @@ export default function User() {
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit Car</h1>
-        <Link to="/newUser">
-          <button className="userAddButton">Create</button>
-        </Link>
+
       </div>
       <div className="userContainer">
         <div className="userShow">
@@ -126,6 +138,20 @@ export default function User() {
                   onChange={handleChange}
                 />
               </div>
+              <div className="userUpdateItem">
+                <label>category</label>
+                <select
+                  type="select"
+                  name="categoryId"
+                  className="userUpdateInput"
+                  onChange={handleChange}
+                >
+                  {category.map(item => (
+                    <option value={item._id} key={item._id} >{item.type}</option>
+                  ))
+                  }
+                </select>
+              </div>
 
             </div>
             <div className="userUpdateRight">
@@ -142,7 +168,7 @@ export default function User() {
             </div>
           </form>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
