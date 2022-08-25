@@ -29,7 +29,7 @@ export default function NewCar() {
     }
     getCat()
   }, [])
-  console.log(car)
+
   const handleSubmit = (e) => {
     e.preventDefault();
 

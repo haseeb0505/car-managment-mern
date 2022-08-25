@@ -1,19 +1,46 @@
 import "./carList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
+
 import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CarContext } from "../../context/CarsContext/carContext";
 import { getCars, deleteCar } from "../../context/CarsContext/apiCalls";
+import { getCategories } from "../../context/CategoryContext/apiCalls";
+import { CategoryContext } from "../../context/CategoryContext/categoryContext";
+import axios from "axios";
 
 export default function CarList() {
 
+  const [categories, setCategories] = useState([])
+  const [category, setCategory] = useState("")
+  const [allcars, setAllCars] = useState([])
+
   const { cars, dispatch } = useContext(CarContext);
 
+
   useEffect(() => {
+
+    const getCat = async () => {
+      try {
+        const res = await axios.get("/category", { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).data.accessToken } });
+        setCategories(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getCat();
     getCars(dispatch);
+
   }, [dispatch]);
+
+  useEffect(() => {
+    setAllCars(cars.filter((item) => item.categoryId === category)
+
+    )
+
+  }, [category, cars])
 
   const handleDelete = (id) => {
     deleteCar(id, dispatch);
@@ -62,15 +89,25 @@ export default function CarList() {
       },
     },
   ];
+  console.log(allcars)
 
   return (
 
+
     <div className="userList">
       <div className="Search">
-        Search
+        <div className="searchComponent">
+          <select className="select" onChange={(e) => setCategory(e.target.value)}>
+            {categories.map((item) => (
+
+              <option value={item._id}>{item.type}</option>
+            ))}
+          </select>
+        </div>
       </div>
+
       <DataGrid
-        rows={cars}
+        rows={category ? allcars : cars}
         disableSelectionOnClick
         columns={columns}
         pageSize={10}
@@ -79,5 +116,6 @@ export default function CarList() {
 
       />
     </div>
+
   );
 }

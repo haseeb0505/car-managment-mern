@@ -1,7 +1,7 @@
 import "./categoryList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
+
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { getCategories, deleteCategory } from "../../context/CategoryContext/apiCalls";
@@ -65,9 +65,7 @@ export default function CategoryList() {
   return (
 
     <div className="userList">
-      <div className="Search">
-        Search
-      </div>
+
       <DataGrid
         rows={categories}
         disableSelectionOnClick

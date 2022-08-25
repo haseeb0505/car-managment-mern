@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "5da357f7-7ce2-41d3-b586-059f62d68cd3",
+		"name": "Mern-car-managment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20527968"
+	},
+	"item": [
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"fgdfg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/category/63049d1d33353df50ad368c8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"category",
+								"63049d1d33353df50ad368c8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/category/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/category/62fd0f375b0cca2546d25979",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"category",
+								"62fd0f375b0cca2546d25979"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"description": " ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"hatchback\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/category/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cars",
+			"item": [
+				{
+					"name": "get all cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/?new=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								""
+							],
+							"query": [
+								{
+									"key": "cat",
+									"value": "63049d1d33353df50ad368c8",
+									"disabled": true
+								},
+								{
+									"key": "new",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "countcars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/count/63049d1d33353df50ad368c8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								"count",
+								"63049d1d33353df50ad368c8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add car",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"passo\",\r\n    \"categoryId\":\"63049d1d33353df50ad368c8\",\r\n    \"model\": 2019,\r\n    \"color\": \"silver\",\r\n    \"make\" :\"toyota\",\r\n    \"registrationNo\":\"auz-123\",\r\n    \"ownerId\":\"6304b3a4dba402fc324cef1e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cars/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get car",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/find/63049f4d9595e65962073aea",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								"find",
+								"63049f4d9595e65962073aea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete car",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/63049f4d9595e65962073aea",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								"63049f4d9595e65962073aea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update car",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDQ5OTlhNzllMDkxNTNiNjFjNjI5MyIsImlhdCI6MTY2MTI0NTkwNCwiZXhwIjoxNjYxNTA1MTA0fQ.oULRz0He3VH13yP5fdx1hCn-UuAXBWSkvQoVKVVYWpk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"registrationNo\": \"auz-124\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cars/63049f4d9595e65962073aea",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								"63049f4d9595e65962073aea"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"test\",\r\n    \"email\":\"test@gmail.com\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"haseebzahid6@gmail.com\",\r\n    \"password\":\"JjBR4osy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		}
+	]
+}
