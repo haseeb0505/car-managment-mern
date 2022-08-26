@@ -30,15 +30,17 @@ router.post("/register", async (req, res) => {
     })
 
     try {
-        let info = await transporter.sendMail({
-            from: 'testingNode121@gmail.com', // sender address
-            to: req.body.email, // list of receiver
-            subject: "successfull signup ", // Subject line
-            html: `Hello <b> ${req.body.username} </b> you have successfully logged in  using <b> ${req.body.email} </b>and your password is <b> ${pass}</b>`,
 
+
+        let response = await newUser.save().then(() => {
+            transporter.sendMail({
+                from: 'testingNode121@gmail.com', // sender address
+                to: req.body.email, // list of receiver
+                subject: "successfull signup ", // Subject line
+                html: `Hello <b> ${req.body.username} </b> you have successfully logged in  using <b> ${req.body.email} </b>and your password is <b> ${pass}</b>`,
+
+            });
         });
-
-        let response = await newUser.save();
         res.status(200).send(response)
 
     } catch (error) {

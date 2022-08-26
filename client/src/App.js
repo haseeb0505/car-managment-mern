@@ -13,6 +13,7 @@ import { useContext } from "react";
 import CategoryList from "./pages/categoryList/CategoryList";
 import Category from "./pages/category/Category";
 import NewCategory from "./pages/newCategory/NewCategory";
+import Register from "./pages/register/Register";
 
 
 
@@ -22,6 +23,7 @@ function App() {
     <Router>
       <Switch>
 
+        <Route path="/register">{user ? <Redirect to="/" /> : <Register />}</Route>
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
 
 
